@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "env-doctor"
+version = "1.0.0"
+description = "Production-grade .env file linter, template drift detector, secret scanner, and formatter."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+    { name = "slopggobblercobbler81" }
+]
+keywords = [
+    "env",
+    "dotenv",
+    "linter",
+    "environment-variables",
+    "security",
+    "secret-detection",
+    "drift-detection",
+    "devops",
+    "cli"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Utilities"
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0"
+]
+
+[project.scripts]
+env-doctor = "env_doctor.cli:main"
+envdoc = "env_doctor.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/slopggobblercobbler81/env-doctor"
+Repository = "https://github.com/slopggobblercobbler81/env-doctor"
+Issues = "https://github.com/slopggobblercobbler81/env-doctor/issues"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+pythonpath = ["."]
+addopts = "-v --strict-markers"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["env_doctor*"]
